@@ -2,7 +2,7 @@ import os
 import base64
 
 
-def encrypt_image(image_path: str) -> None:
+def encrypt_image(image_path: str) -> str:
     if not os.path.exists("result"):
         os.makedirs("result")
 
@@ -20,7 +20,7 @@ def encrypt_image(image_path: str) -> None:
     return encrypted_filename_path
 
 
-def decrypt_image(image_path: str) -> None:
+def decrypt_image(image_path: str) -> str:
     with open(image_path, "rb") as image_file:
         image_bytes = image_file.read()
         encoded_bytes = base64.b64decode(image_bytes)
